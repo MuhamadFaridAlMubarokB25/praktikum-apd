@@ -1,0 +1,40 @@
+# Input nama lengkap, nim dan preview menu
+
+print()
+print(44*"—")
+print("|    Menu     |     Harga    |    Pajak    |")
+print(44*"—")
+print("|  Pecel lele |   Rp15.000   |      5%     |")
+print("|   Mie Ayam  |   Rp15.000   |      8%     |")
+print("| Nasi Padang |   Rp15.000   |      10%    |")
+print(44*"—")
+print()
+Nama_lengkap = input("Masukkan nama lengkap: ")
+NIM = input("Masukkan NIM: ")
+
+# Input harga menu makanan
+
+harga_menu = float(input("Masukkan harga menu makanan: "))
+
+# data menu makanan dan pajak
+
+pecelLele = harga_menu + (harga_menu * 0.05)
+mieAyam = harga_menu + (harga_menu * 0.08)
+nasiPadang = harga_menu + (harga_menu * 0.10)
+
+# Output harga menu makanan dengan pajak
+
+print()
+print("Harga Pecel Lele setelah pajak 5%: Rp", pecelLele)
+print("Harga Mie Ayam setelah pajak 8%: Rp", mieAyam)
+print("Harga Nasi Padang setelah pajak 10%: Rp", nasiPadang)
+
+# Output nama lengkap, nim, dan harga menu makanan
+
+print()
+print(f"{Nama_lengkap} dengan NIM {NIM} ingin membeli makanan seharga Rp{harga_menu}")
+print()
+print(f"Jika {Nama_lengkap} membeli Pecel Lele, maka ia harus membayar Rp{pecelLele} setelah mendapat pajak 5%")
+print(f"Jika {Nama_lengkap} membeli Mie Ayam, maka ia harus membayar Rp{mieAyam} setelah mendapat pajak 8%")
+print(f"Jika {Nama_lengkap} membeli Nasi Padang, maka ia harus membayar Rp{nasiPadang} setelah mendapat pajak 10%")
+print()
