@@ -15,12 +15,13 @@ nimpengguna = input("Masukkan NIM: ")
 # proses login dan pembayaran UKT
 
 if nama == namapengguna and nim == nimpengguna:
-    print("Login berhasil, Silahkan lanjut Opsi Pembayaran")
-    print()
-    print("=== Pembayaran UKT ===")
+    print("Login berhasil, Silahkan lanjut ke Opsi Pembayaran")
     print()
     print("Total UKT adalah Rp", UKT)
     print()
+    print(" === Pembayaran UKT ===")
+    print()
+    print("Pilih Opsi Pembayaran")
     print(48*"—")
     print("| Opsi |   Metode Pembayaran   |  Biaya Admin  |")
     print(48*"—")
@@ -33,8 +34,6 @@ if nama == namapengguna and nim == nimpengguna:
 
     pembayaran = int(input("Masukkan opsi pembayaran : "))
 
-
-
     if pembayaran == 1:
         biaya_admin = UKT * 0.01
         total_bayar = UKT + biaya_admin
@@ -44,25 +43,27 @@ if nama == namapengguna and nim == nimpengguna:
     elif pembayaran == 2:
         biaya_admin = UKT * 0.05
         total_bayar = UKT + biaya_admin
-        cicilan = total_bayar / 2
+        jumlah_cicilan = 2
+        cicilan = total_bayar / jumlah_cicilan
         print()
-        print(f"Pembayaran Cicilan 2x dengan Total Rp{total_bayar} dengan biaya admin Rp{biaya_admin} per cicilan Rp{cicilan}")
+        print(f"Pembayaran Cicilan {jumlah_cicilan}x dengan Total Rp{total_bayar} per cicilan Rp{cicilan}")
         print()
     elif pembayaran == 3:
         biaya_admin = UKT * 0.08
         total_bayar = UKT + biaya_admin
-        cicilan = total_bayar / 4
+        jumlah_cicilan = 4
+        cicilan = total_bayar / jumlah_cicilan
         print()
-        print(f"Pembayaran Cicilan 4x dengan Total Rp{total_bayar} dengan biaya admin {biaya_admin} per cicilan {cicilan}")
-        print()
+        print(f"Pembayaran Cicilan {jumlah_cicilan}x dengan Total Rp{total_bayar} per cicilan Rp{cicilan}")
     elif pembayaran == 4:
         biaya_admin = UKT * 0.12
         total_bayar = UKT + biaya_admin
-        cicilan = total_bayar / 6
+        jumlah_cicilan = 6
+        cicilan = total_bayar / jumlah_cicilan
         print()
-        print(f"Pembayaran Cicilan 2x dengan Total {total_bayar} dengan biaya admin {biaya_admin} per cicilan {cicilan}")
+        print(f"Pembayaran Cicilan {jumlah_cicilan}x dengan Total Rp{total_bayar} per cicilan Rp{cicilan}")
         print()
     else:
         print("Pembayaran tidak valid")
 else:
-    print("Login gagal")
+    print("Login gagal, Nama atau NIM Salah")
