@@ -31,7 +31,7 @@ while percobaan < maksimal_percobaan:
         1. Jika Sudah Memilih Furnitur, Pilih Opsi 4 untuk Melanjutkan ke Pembayaran''')
 
         while True:
-            opsi = (input(Masukkan Opsi:))
+            opsi = (input('Masukkan Opsi:'))
             if opsi == 1:
                 jumlah = int(input('Masukkan Jumlah Pembelian: '))
                 harga = 500000
