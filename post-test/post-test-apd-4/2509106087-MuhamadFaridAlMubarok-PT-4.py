@@ -34,9 +34,9 @@ while percobaan < maksimal_percobaan:
             print(46*"—")
             print('Ketentuan:')
             print('1. Pilih Opsi 4 untuk membatalkan pembelian.')
-            print("2. Jika Total bayar mencapai Rp.700.000, Anda mendapatkan diskon 20%.")
-            print("3. Jika Total bayar mencapai Rp.500.000, Anda mendapatkan diskon 8%.")
-            print('4. Jika Total bayar mencapai Rp.150.000, Anda mendapatkan Kitchen Set.')
+            print("2. Jika Total bayar mencapai Rp.700.000 atau lebih, Anda mendapatkan diskon 20%.")
+            print("3. Jika Total bayar mencapai Rp.500.000 atau Rp.699.000, Anda mendapatkan diskon 8%.")
+            print('4. Jika Total bayar mencapai Rp.150.000 sampai Rp.499.000, Anda mendapatkan Kitchen Set.')
             print()
             opsi = int(input('Masukan opsi: '))
             if opsi == 1:
