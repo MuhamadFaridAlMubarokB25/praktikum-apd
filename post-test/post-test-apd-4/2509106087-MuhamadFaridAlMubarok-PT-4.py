@@ -22,7 +22,7 @@ while percobaan < maksimal_percobaan:
 
 # Pembelian Furnitur
 
-        while(int):
+        while(True):
             print('Daftar Furnitur Toko Infordeh')
             print()
             print(46*"—")
@@ -128,10 +128,8 @@ while percobaan < maksimal_percobaan:
                 print('Anda Membatalkan Pembelian')
                 print()
                 break
-
             else:
                 print('Opsi Tidak Tersedia, Silahkan Pilih Opsi yang Tersedia')
-                break
     else:
         percobaan += 1
         sisa_percobaan = maksimal_percobaan - percobaan
