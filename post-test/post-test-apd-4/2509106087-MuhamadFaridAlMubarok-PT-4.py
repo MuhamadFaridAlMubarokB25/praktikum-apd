@@ -45,7 +45,7 @@ while percobaan < maksimal_percobaan:
                 jumlah_unit = int(input('Masukkan Jumlah Furnitur: '))
                 harga = 500000
 
-                int(total)
+                total = 0
                 for i in range(jumlah_unit):
                     total += harga
                 if total >= 700000:
