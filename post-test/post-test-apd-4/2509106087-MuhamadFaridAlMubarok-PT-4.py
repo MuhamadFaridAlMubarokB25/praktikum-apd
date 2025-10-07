@@ -9,7 +9,7 @@ percobaan = 0
 
 print()
 print('Selamat Datang di Toko Furnitur Infordeh')
-print('Silahkan Masukkan Username dan Password untuk Melanjutkan Furnitur Furnitur')
+print('Silahkan Masukkan Username dan Password untuk Melanjutkan Pembelian Furnitur')
 print()
 
 while percobaan < maksimal_percobaan:
@@ -23,8 +23,7 @@ while percobaan < maksimal_percobaan:
 
 # Pembelian Furnitur
 
-        opsi = True
-        while opsi == True:
+        while True:
             print('Daftar Furnitur Toko Infordeh')
             print()
             print(46*"—")
@@ -129,7 +128,7 @@ while percobaan < maksimal_percobaan:
                 print()
                 print('Anda Membatalkan Pembelian')
                 print()
-                opsi = False
+                exit()
             else:
                 print('Opsi Tidak Tersedia, Silahkan Pilih Opsi yang Tersedia')
                 break
