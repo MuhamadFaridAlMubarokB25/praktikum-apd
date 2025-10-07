@@ -134,15 +134,9 @@ while percobaan < maksimal_percobaan:
                 break
     else:
         percobaan += 1
-        sisa_percobaan = maksimal_percobaan - percobaan
-        if sisa_percobaan > 0:
-            print()
-            print('Username atau Password Salah. Sisa Percobaan:', sisa_percobaan)
-            print()
-        else:
-            sisa_percobaan == 0
-            print()
-            print('Percobaan Anda Habis. Silahkan Coba Lagi Nanti')
-            print()
-            break
+        print()
+        print('Username atau Password yang Anda Masukkan Salah, Silahkan Coba lagi') 
+        print('Jumlah Percobaan: ', percobaan)
+        print()
+print('Percobaan Anda Habis, Silahkan Coba Lagi Nanti')
 
