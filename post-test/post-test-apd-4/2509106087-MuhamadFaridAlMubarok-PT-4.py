@@ -135,8 +135,7 @@ while percobaan < maksimal_percobaan:
     else:
         percobaan += 1
         print()
-        print('Username atau Password yang Anda Masukkan Salah, Silahkan Coba lagi') 
-        print('Jumlah Percobaan: ', percobaan)
+        print('Username atau Password Salah. Jumlah Percobaan: ', percobaan) 
         print()
 print('Percobaan Anda Habis, Silahkan Coba Lagi Nanti')
 
