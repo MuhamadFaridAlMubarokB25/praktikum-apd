@@ -46,6 +46,7 @@ while percobaan < maksimal_percobaan:
                 harga = 500000
 
                 total = 0
+                total_bayar = int
                 for i in range(jumlah_unit):
                     total += harga
                 if total >= 700000:
@@ -74,6 +75,7 @@ while percobaan < maksimal_percobaan:
                 harga = 250000
                 
                 total = 0
+                total_bayar = int
                 for i in range(jumlah_unit):
                     total += harga
                 if total >= 700000:
@@ -102,6 +104,7 @@ while percobaan < maksimal_percobaan:
                 harga = 150000
                 
                 total = 0
+                total_bayar = int
                 for i in range(jumlah_unit):
                     total += harga
                 if total >= 700000:
