@@ -1,7 +1,7 @@
 # Variabel
 
 username = "Muhamad Farid Al Mubarok"
-password = "2509106087"
+password = "250986087"
 maksimal_percobaan = 3
 percobaan = 0
 
@@ -53,7 +53,7 @@ while percobaan < maksimal_percobaan:
                     diskon = '20%'
                 elif total >= 500000 and total < 700000:
                     total_bayar = total - (0.08 * total)
-                    diskon = '10%'
+                    diskon = '8%'
                 else:
                     total >= 150000 and total < 500000
                     diskon = 'kitchen set'
@@ -81,7 +81,7 @@ while percobaan < maksimal_percobaan:
                     diskon = '20%'
                 elif total >= 500000 and total < 700000:
                     total_bayar = total - (0.08 * total)
-                    diskon = '10%'
+                    diskon = '8%'
                 else:
                     total >= 150000 and total < 500000
                     diskon = 'kitchen set'
@@ -109,7 +109,7 @@ while percobaan < maksimal_percobaan:
                     diskon = '20%'
                 elif total >= 500000 and total < 700000:
                     total_bayar = total - (0.08 * total)
-                    diskon = '10%'
+                    diskon = '8%'
                 else:
                     total >= 150000 and total < 500000
                     diskon = 'kitchen set'

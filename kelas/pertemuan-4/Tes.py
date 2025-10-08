@@ -1,140 +1,74 @@
-# Variabel
+nama="Siti Julpa"
+NIM=2509106080
 
-username = "Muhamad Farid Al Mubarok"
-password = "2509106087"
-maksimal_percobaan = 3
-percobaan = 0
-
-# Validasi Login
-
-print()
-print('Selamat Datang di Toko Furnitur Infordeh')
-print('Silahkan Masukkan Username dan Password untuk Melanjutkan Pembelian Furnitur')
+print("Selamat datang di program Pembelian Tiket Bioskop XX0")
 print()
 
-while percobaan < maksimal_percobaan:
-    usernameinput = input('Masukkan Username: ')
-    passwordinput = input('Masukkan Password: ')
-    if username == usernameinput and password == passwordinput:
+for i in range(3):
+    print("Silahkan login terlebih dahulu:")
+    username=(str(input("Masukkan username: ")))
+    password=(int(input("Masukkan password: ")))
+    if username==nama and password==NIM:
         print()
-        print('Login Berhasil, Silahkan Melanjutkan Pembelian Furnitur')
+        print("Selamat anda berhasil login!")
         print()
-        
-
-# Pembelian Furnitur
-
-        while True:
-            print('Daftar Furnitur Toko Infordeh')
-            print()
-            print(46*"—")
-            print("| Opsi |   Furnitur       |  Harga Per Unit  |")
-            print(46*"—")
-            print("| 1    |   Sofa           |  Rp.500.000      |")
-            print("| 2    |   Meja Belajar   |  Rp.250.000      |")
-            print("| 3    |   Rak Lemari     |  Rp.150.000      |")
-            print(46*"—")
-            print('Ketentuan:')
-            print('1. Pilih Opsi 4 untuk membatalkan pembelian.')
-            print("2. Jika Total bayar mencapai Rp.700.000 atau lebih, Anda mendapatkan diskon 20%.")
-            print("3. Jika Total bayar mencapai Rp.500.000 atau Rp.699.000, Anda mendapatkan diskon 8%.")
-            print('4. Jika Total bayar mencapai Rp.150.000 sampai Rp.499.000, Anda mendapatkan Kitchen Set.')
-            print()
-            opsi = int(input('Masukan opsi: '))
-            if opsi == 1:
-                furnitur = 'Sofa'
-                jumlah_unit = int(input('Masukkan Jumlah Furnitur: '))
-                harga = 500000
-
-                total = 0
-                for i in range(jumlah_unit):
-                    total += harga
-                if total >= 700000:
-                    total_bayar = total - (0.20 * total)
-                    diskon = '20%'
-                elif total >= 500000 and total < 700000:
-                    total_bayar = total - (0.08 * total)
-                    diskon = '10%'
-                else:
-                    total >= 150000 and total < 500000
-                    diskon = 'kitchen set'
-                print()
-                print('Terima Kasih Telah Berbelanja di Toko Furnitur Infordeh')
-                print(20*"_")
-                print()
-                print('Struk Pembayaran')
-                print('Jenis Furnitur:', furnitur)
-                print('Jumlah Unit:', jumlah_unit)
-                print('Total Harga: Rp.', total_bayar)
-                print('Diskon/Bonus:', diskon)
-                print(20*"_")
-                print()
-            elif opsi == 2:
-                furnitur = 'Meja Belajar'
-                jumlah_unit = int(input('Masukkan Jumlah Furnitur: '))
-                harga = 250000
-                
-                total = 0
-                for i in range(jumlah_unit):
-                    total += harga
-                if total >= 700000:
-                    total_bayar = total - (0.20 * total)
-                    diskon = '20%'
-                elif total >= 500000 and total < 700000:
-                    total_bayar = total - (0.08 * total)
-                    diskon = '10%'
-                else:
-                    total >= 150000 and total < 500000
-                    diskon = 'kitchen set'
-                print()
-                print('Terima Kasih Telah Berbelanja di Toko Furnitur Infordeh')
-                print(20*"_")
-                print()
-                print('Struk Pembayaran')
-                print('Jenis Furnitur:', furnitur)
-                print('Jumlah Unit:', jumlah_unit)
-                print('Total Harga: Rp.', total_bayar)
-                print('Diskon/Bonus:', diskon)
-                print(20*"_")
-                print()
-            elif opsi == 3:
-                furnitur = 'Rak Lemari'
-                jumlah_unit = int(input('Masukkan Jumlah Furnitur: '))
-                harga = 150000
-                
-                total = 0
-                for i in range(jumlah_unit):
-                    total += harga
-                if total >= 700000:
-                    total_bayar = total - (0.20 * total)
-                    diskon = '20%'
-                elif total >= 500000 and total < 700000:
-                    total_bayar = total - (0.08 * total)
-                    diskon = '10%'
-                else:
-                    total >= 150000 and total < 500000
-                    diskon = 'kitchen set'
-                print()
-                print('Terima Kasih Telah Berbelanja di Toko Furnitur Infordeh')
-                print(20*"_")
-                print()
-                print('Struk Pembayaran')
-                print('Jenis Furnitur:', furnitur)
-                print('Jumlah Unit:', jumlah_unit)
-                print('Total Harga: Rp.', total)
-                print('Diskon/Bonus:', diskon)
-                print(20*"_")
-                print()
-            elif opsi == 4:
-                print()
-                print('Anda Membatalkan Pembelian')
-                print()
-                exit()
-            else:
-                print('Opsi Tidak Tersedia, Silahkan Pilih Opsi yang Tersedia')
-                break
+        print("=============== OPSI PEMBAYARAN =================")
+        print("1. Tiket Reguler dengan Harga per tiket Rp 50.000")
+        print("2. Tiket VIP dengan Harga per tiket Rp 100.000")
+        print("3. Tiket VVIP dengan Harga per tiket Rp 150.000")
+        print("4. Keluar dari program")
+        print(50*"=")
+        print()
+        break
+    elif username==nama or password==NIM:
+        print("Error: Format akun salah!")
     else:
-        percobaan += 1
+        print("Error: Gagal login!")
+
+while True:
+    opsi=int(input("Silahkan pilih opsi pembayaran: "))
+    if opsi==1 or opsi==2 or opsi==3:
+        jumlah=int(input("Silahkan masukkan jumlah tiket yang ingin dibeli: "))
+        if opsi==1:
+            jenis="Reguler"
+            harga=50000
+        elif opsi==2:
+            jenis="VIP"
+            harga=100000
+        else:
+            jenis="VVIP"
+            harga=150000
+        
+        total=0
+        totalBayar=0
+        for i in range(jumlah):
+            total+=harga
+            totalBayar=total
+        
+        diskon=0
         print()
-        print('Username atau Password Salah. Jumlah Percobaan: ', percobaan) 
+        if totalBayar>=300000:
+            diskon=totalBayar*12/100
+            bonus="Mendapat potongan harga 12%"
+        elif totalBayar>=200000:
+            diskon=totalBayar*8/100
+            bonus="Mendapat potongan harga 8%"
+        elif totalBayar>=150000:
+            bonus="Mendapat poster film eksklusif!"
+        else:
+            bonus="Tidak mendapat bonus"
+        
+        totalAkhir=totalBayar
+        totalAkhir=totalBayar-diskon
         print()
-print('Percobaan Anda Habis, Silahkan Coba Lagi Nanti')
+        print("====================== STRUK PEMBELIAN ======================")
+        print(f"Jenis tiket                         : {jenis}")
+        print(f"Jumlah tiket                        : {jumlah}")
+        print(f"Benefit yang didapat                : {bonus}")
+        print(f"Total yang harus anda bayar sebesar : Rp {int(totalAkhir)}")
+        print()
+        print("Terima kasih atas pembelian anda!")
+        print(60*"=")
+        print()
+    else:
+        break
