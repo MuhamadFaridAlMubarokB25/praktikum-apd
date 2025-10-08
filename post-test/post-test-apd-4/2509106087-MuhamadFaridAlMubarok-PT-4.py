@@ -36,7 +36,7 @@ while percobaan < maksimal_percobaan:
             print('Ketentuan:')
             print('1. Pilih Opsi 4 untuk membatalkan pembelian.')
             print("2. Jika Total bayar mencapai Rp.700.000 atau lebih, Anda mendapatkan diskon 20%.")
-            print("3. Jika Total bayar mencapai Rp.500.000 atau Rp.699.000, Anda mendapatkan diskon 8%.")
+            print("3. Jika Total bayar mencapai Rp.500.000 atau Rp.699.000, Anda mendapatkan diskon 08%.")
             print('4. Jika Total bayar mencapai Rp.150.000 sampai Rp.499.000, Anda mendapatkan Kitchen Set.')
             print()
             opsi = int(input('Masukkan opsi: '))
@@ -73,7 +73,7 @@ while percobaan < maksimal_percobaan:
                 jumlah_unit = int(input('Masukkan Jumlah Furnitur: '))
                 harga = 250000
                 
-                int(total)
+                total = 0
                 for i in range(jumlah_unit):
                     total += harga
                 if total >= 700000:
@@ -101,7 +101,7 @@ while percobaan < maksimal_percobaan:
                 jumlah_unit = int(input('Masukkan Jumlah Furnitur: '))
                 harga = 150000
                 
-                int(total)
+                total = 0
                 for i in range(jumlah_unit):
                     total += harga
                 if total >= 700000:
