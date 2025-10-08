@@ -1,7 +1,7 @@
 # Variabel
 
 username = "Muhamad Farid Al Mubarok"
-password = "250986087"
+password = "2509106087"
 maksimal_percobaan = 3
 percobaan = 0
 
