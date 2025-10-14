@@ -152,7 +152,6 @@ while True:
                             print(5*'--')
                             print('\nApakah Anda Ingin Membeli parfum lagi?')
                             print('')
-                            break
                             
                 elif opsi == 2:
                     print('Terimakasih Sudah Berkunjung ke Toko Parfum')
