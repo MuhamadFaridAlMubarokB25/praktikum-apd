@@ -183,7 +183,7 @@ while True:
                     print('Terimakasih Sudah Berkunjung ke Toko Parfum')
                     break
 
-                # Pilihan Tidak Valid
+                # Pilihan Tidak Valid 
 
                 else:
                     print('Pilihan Tidak Valid, Silahkan pilih Opsi yang Tersedia')
@@ -200,9 +200,14 @@ while True:
             print('\nUsername atau Password Salah, Silahkan Coba Lagi')
     
     # Keluar Dari Program
-    
+
     elif opsimenu == 3:
         print('\nTerima Kasih Sudah Berkunjung')
         print('')
         exit()
+
+    # Pilihan Tidak Valid pada Menu Utama
+
+    else:
+        print('\nPilihan Tidak Valid, Silahkan pilih Opsi yang Tersedia')
 
