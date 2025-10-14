@@ -17,13 +17,14 @@
 #    B = int(input("Berapa yang ingin anda mau?"))
 #    print(A*B)
 #A = str(input("Mau apa yang diulang?: "))
-#farid(A)
+#farid(A) 
 
-def cetak (a,b):
-    for i in range(a):
-        print(a,end='')
+#def cetak (a,b):
+#    for i in range(b):
+#        print(a,end='')
+#
+#cetak('!',3)
+#cetak('@',6)
+#cetak('#',9)
+#cetak('$',12)
 
-cetak('!',3)
-cetak('@',6)
-cetak('#',9)
-cetak('$',12)
