@@ -1,8 +1,12 @@
 import os
 os.system('cls')
 
+# Penyimpanan Data
+
 akuns = []
 dataparfum = []
+
+# Menu Utama
 
 while True:
     print(43*'=')
@@ -19,6 +23,8 @@ while True:
 
     opsimenu =int(input('\nPilih Opsi: '))
     
+    # Proses Registrasi
+
     if opsimenu == 1:
         print(43*'=')
         print('|                                         |')
@@ -40,6 +46,8 @@ while True:
         akuns.append([username, password, status])
         print('\nRegistrasi Berhasil')
 
+    # Proses Login
+
     elif opsimenu == 2:
         print(43*'=')
         print('|                                         |')
@@ -50,6 +58,8 @@ while True:
         usernameinput = input('\nMasukkan Username: ')
         passwordinput = input('Masukkan Password: ')
         statusinput = (input('Login Sebagai (admin/customer): '))
+
+        # Proses Login (Berhasil Login Sebagai Admin)
 
         if usernameinput == username and passwordinput == password and statusinput == 'admin':
             print('\nLogin Berhasil!, Selamat datang', username)
@@ -65,7 +75,9 @@ while True:
             print(50*'=')
             while True:
                 opsi = int(input('\nPilih Opsi: '))
+
                 # Menambahkan Parfum
+
                 if opsi == 1:
                     print('\nSilahkan Menambahkan Data Parfum Baru')
                     nama  = input('Nama Parfum: ')
@@ -73,7 +85,9 @@ while True:
                     harga = int(input('Harga parfum: Rp. '))
                     print('\nData berhasil Ditambahkan')
                     dataparfum.append([nama, aroma, harga])
+
                 # Membaca List Parfum
+
                 elif opsi == 2:
                     print('\n=== LIST PARFUM ===')
                     if len(dataparfum) == 0:
@@ -85,7 +99,9 @@ while True:
                             print(f'Aroma       : {dataparfum[i][1]}')
                             print(f'Harga       : Rp. {dataparfum[i][2]}')
                             print('\n===================')
+
                 # Meng-Update Data Parfum
+
                 elif opsi == 3:
                     updateparfum = input('\nMasukkan Nama Parfum yang ingin diupdate: ')
                     for i in range(len(dataparfum)):
@@ -97,14 +113,18 @@ while True:
                             break
                         else:
                             print('\nData Tidak Ditemukan')
+
                 # Menghapus Data Parfum
+
                 elif opsi == 4:
                     hapusparfum = input('Masukkan Data Parfum yang ingin dihapus: ')
                     for i in range(len(dataparfum)):
                         if hapusparfum == dataparfum[i][0]:
                             del dataparfum[i]
                             print('\nData Berhasil Dihapus')
+
                 # Keluar Dari Menu Admin
+
                 elif opsi == 5:
                     print('\nTerima kasih sudah berkunjung ke Manajemen Data Toko Parfum')
 
@@ -113,6 +133,8 @@ while True:
                 # Opsi Tidak Valid
                 else:
                     print('\nPilihan Tidak Valid, Silahkan Pilih Opsi yang tersedia')
+
+        # Proses Login (Berhasil Login Sebagai Customer)
 
         elif usernameinput == username and passwordinput == password and statusinput == 'customer':
             print('\nLogin Berhasil!')
@@ -126,6 +148,9 @@ while True:
             print('Silahkan Pilih Opsi!')
             while True:
                 opsi = int(input('\nPilih Opsi: '))
+
+                # Tampilan Daftar Dan Pembelian Parfum 
+
                 if opsi == 1:
                     print('\n=== LIST PARFUM ===')
                     if len(dataparfum) == 0:
@@ -153,17 +178,28 @@ while True:
                             print('\nApakah Anda Ingin Membeli parfum lagi?')
                             print('')
                             
+                # Keluar ke Menu Utama
                 elif opsi == 2:
                     print('Terimakasih Sudah Berkunjung ke Toko Parfum')
                     break
+
+                # Pilihan Tidak Valid
+
                 else:
                     print('Pilihan Tidak Valid, Silahkan pilih Opsi yang Tersedia')
                     break
+
+        # Status Login Salah
+
         elif statusinput != status:
             print('\nSilahkan Pilih Status! (admin/customer)')
+
+        # Username Atau Input Salah
+
         elif usernameinput == username or passwordinput == password :
             print('\nUsername atau Password Salah, Silahkan Coba Lagi')
     
+    # Keluar Dari Program
     
     elif opsimenu == 3:
         print('\nTerima Kasih Sudah Berkunjung')
