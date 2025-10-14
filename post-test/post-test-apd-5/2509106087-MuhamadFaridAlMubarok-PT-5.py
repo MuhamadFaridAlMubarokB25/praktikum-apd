@@ -103,9 +103,9 @@ while True:
                 # Meng-Update Data Parfum
 
                 elif opsi == 3:
-                    updateparfum = input('\nMasukkan Nama Parfum yang ingin diupdate: ')
+                    namasebelumnya = input('\nMasukkan Nama Parfum yang ingin diupdate: ')
                     for i in range(len(dataparfum)):
-                        if updateparfum == dataparfum[i][0]:
+                        if namasebelumnya == dataparfum[i][0]:
                             dataparfum[i][0] = input('Nama baru: ')
                             dataparfum[i][1] = input('Aroma baru: ')
                             dataparfum[i][2] = input('Harga baru: Rp. ')
@@ -210,4 +210,5 @@ while True:
 
     else:
         print('\nPilihan Tidak Valid, Silahkan pilih Opsi yang Tersedia')
+
 
