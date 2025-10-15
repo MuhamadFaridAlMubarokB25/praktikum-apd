@@ -21,7 +21,7 @@ while True:
     print(43*'=')
     print('')
 
-    opsimenu =int(input('\nPilih Opsi: '))
+    opsimenu = int(input('Pilih Opsi: '))
     
     # Proses Registrasi
 
@@ -34,17 +34,27 @@ while True:
 
         username = input('\nMasukkan Username: ')
         password = input('Masukkan Password: ')
-        status = input('Login Sebagai (admin/customer): ')
-        if status != 'admin' and status != 'customer':
-            print('\nSilahkan Input Status Login dengan benar (admin/customer)')
-            continue
-        
-        for akun in akuns:
-            if akun[0] == username:
-                print('Username sudah terdaftar. Silahkan Pilih Username Lain!')
+        while True:
+            status = input('Login Sebagai (admin/customer): ')
+            if status == 'admin' or status == 'customer':
+                print('\nRegistrasi Berhasil')
+
                 break
-        akuns.append([username, password, status])
-        print('\nRegistrasi Berhasil')
+            else:
+                print('\nSilahkan Input Status Login dengan benar (admin/customer)')
+
+                # Cek Akun Terdaftar
+
+            data_terdaftar = False
+            for data_akun in akuns:
+                if data_akun[username == username]:
+                    data_terdaftar = True
+                    break
+            if data_terdaftar:
+                print('Username sudah terdaftar. Silahkan Pilih Username Lain!')
+                
+            else:
+                akuns.append({'username': username, 'password': password, 'status': status})
 
     # Proses Login
 
@@ -177,6 +187,8 @@ while True:
                             print(5*'--')
                             print('\nApakah Anda Ingin Membeli parfum lagi?')
                             print('')
+                        else:
+                            ('\nNama parfum tidak ditemukan')
                             
                 # Keluar ke Menu Utama
                 elif opsi == 2:
