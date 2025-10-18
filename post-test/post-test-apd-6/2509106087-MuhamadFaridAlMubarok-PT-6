@@ -2,9 +2,9 @@ import os
 os.system('cls')
 
 # Penyimpanan Data
-akuns = {}        # dictionary untuk customer
-akunadmin = {}    # dictionary untuk admin
-dataparfum = {}   # dictionary untuk data parfum (key = nama parfum, value = dict aroma & harga)
+akuns = {}
+akunadmin = {}
+dataparfum = {}
 
 # Menu Utama
 while True:
