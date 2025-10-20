@@ -266,6 +266,8 @@ while True:
                             if len(dataparfum) == 0:
                                 print('Daftar belum ada, silahkan tambah data dulu!')
 
+                                input('\nTekan Enter Untuk Kembali Ke Menu...')
+
                             else:
                                 urutan = 1
                                 for nama, info in dataparfum.items():
