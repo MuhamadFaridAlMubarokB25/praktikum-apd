@@ -2,370 +2,350 @@ import os
 os.system('cls')
 
 # Penyimpanan Data
+
 akuns = {}
 akunadmin = {}
 dataparfum = {}
+transaksi = 0
+nama_terakhir = ''
 
-# Menu Utama
-while True:
-    os.system('cls')
-    print(43*'=')
-    print('|                                         |')
-    print('|     SELAMAT DATANG DI TOKO PARFUM X     |')
-    print('|     Anda ingin login sebagai siapa?     |')
-    print('|                                         |') 
-    print(43*'=')
-    print('| 1. CUSTOMER                             |') 
-    print('| 2. ADMIN                                |') 
-    print('| 3. KELUAR                               |') 
-    print(43*'=')
-    print('')
+# Fungsi Menu
 
-    opsilogin = int(input('\nMasukkan Pilihan: '))
+def menu_utama():
+    while True:
+        os.system('cls')
+        print(43*'=')
+        print('|                                         |')
+        print('|     SELAMAT DATANG DI TOKO PARFUM X     |')
+        print('|     Anda ingin login sebagai siapa?     |')
+        print('|                                         |') 
+        print(43*'=')
+        print('| 1. CUSTOMER                             |') 
+        print('| 2. ADMIN                                |') 
+        print('| 3. KELUAR                               |') 
+        print(43*'=')
+        print('')
+        try:
+            opsilogin = int(input('Masukkan Pilihan (1-3): '))
+            input('\nTekan Enter Untuk Melanjutkan...')
+
+            if opsilogin == 1:
+                menu_cust1()
+            elif opsilogin == 2:
+                menu_admin1()
+            elif opsilogin == 3:
+                print('\nTerima Kasih Sudah Berkunjung :)')
+                exit()
+            else:
+                print('\nPilihan Tidak Valid! Silahkan Pilih Angka 1-3')
+                input('\nTekan Enter Untuk Kembali')
+                continue
+        except ValueError:
+            print('\nPilihan Harus Berupa Angka! Silahkan Pilih Angka 1-3')
+            input('\nTekan Enter Untuk Kembali...')
+            continue
+
+def menu_cust1():
+    while True:
+        os.system('cls')
+        print('')
+        print(43*'=')
+        print('|                                         |')
+        print('|              MENU CUSTOMER              |')
+        print('|                                         |') 
+        print(43*'=')
+        print('| 1. BUAT AKUN                            |') 
+        print('| 2. LOGIN                                |') 
+        print('| 3. KELUAR                               |') 
+        print(43*'=')
+        print('')
+        try:
+            opsicust = int(input('Masukkan Pilihan (1-3): '))
+            input('\nTekan Enter Untuk Melanjutkan...')
+            if opsicust == 1:
+                register_cust()
+            elif opsicust == 2:
+                login_cust()
+            elif opsicust == 3:
+                print('\nKeluar Dari Menu Customer')
+                input('Tekan Enter Untuk Melanjutkan...')
+                break
+            else:
+                print('\nPilihan Tidak Valid! Silahkan Pilih Angka 1-3')
+                input('\nTekan Enter Untuk Kembali')
+                continue
+        except ValueError:
+            print('Pilihan Harus Berupa Angka! Silahkan Pilih 1-3')
+            input('\nTekan Enter Untuk Kembali...')
+            continue
+
+def menu_cust2():
+    while True:
+        os.system('cls')
+        print(43*'=')
+        print('|         MENU CUSTOMER TOKO PARFUM       |')
+        print(43*'=')
+        print('| 1. LIHAT & BELANJA                      |')
+        print('| 2. KELUAR                               |')
+        print(43*'=')
+        try:
+            opsicust = int(input('\nMasukkan Pilihan (1-2): '))
+            input('\nTekan Enter Untuk Melanjutkan...')
+
+            if opsicust == 1:
+                belanja()
+            elif opsicust == 2:
+                print('\nTerima Kasih Sudah Berkunjung ke TOKO PARFUM')
+                input('\nTekan Enter Untuk Kembali Ke Menu Customer...')
+                break
+            else:
+                print('\nPilihan Tidak Valid! Silahkan Pilih Angka 1-2')
+                input('\nTekan Enter Untuk Kembali')
+                continue
+        except:
+            print('\nPilihan Tidak Valid! Silahkan Pilih 1-2')
+            input('\nTekan Enter Untuk Kembali...')
+            continue
+
+def menu_admin1():
+    while True:
+        os.system('cls')
+        print(43*'=')
+        print('|                                         |')
+        print('|               MENU ADMIN                |')
+        print('|                                         |') 
+        print(43*'=')
+        print('| 1. BUAT AKUN                            |') 
+        print('| 2. LOGIN                                |') 
+        print('| 3. KELUAR                               |') 
+        print(43*'=')
+        print('')
+        try:
+            opsiadmin = int(input('\nMasukkan Pilihan (1-3): '))
+            input('\nTekan Enter Untuk Melanjutkan...')
+
+            if opsiadmin == 1:
+                register_admin()
+            elif opsiadmin == 2:
+                login_admin()
+            elif opsiadmin == 3:
+                print('\nKeluar Dari Menu Admin')
+                input('\nTekan Enter Untuk Melanjutkan...')
+                break
+            else:
+                print('\nPilihan Tidak Valid! Silahkan Pilih 1-3')
+                input('\nTekan Enter Untuk Kembali...')
+                continue
+        except ValueError:
+            print('\nPilihan Tidak Valid! Silahkan Pilih 1-3')
+            input('\nTekan Enter Untuk Kembali...')
+            continue
+
+def menu_admin2():
+    while True:
+        os.system('cls')
+        print(43*'=')
+        print('|        MENU ADMIN TOKO PARFUM X         |')
+        print(43*'=')
+        print('| 1. TAMBAHKAN PARFUM                     |')
+        print('| 2. TAMPILKAN LIST PARFUM                |')
+        print('| 3. UPDATE DATA PARFUM                   |')
+        print('| 4. HAPUS DATA PARFUM                    |')
+        print('| 5. KELUAR                               |')
+        print(43*'=')
+        print('')
+        try:
+            opsi = int(input('\nPilih Opsi (1-5): '))
+            input('\nTekan Enter Untuk Melanjutkan...')
+
+            if opsi == 1:
+                tambah()
+            elif opsi == 2:
+                list()
+            elif opsi == 3:
+                update()
+            elif opsi == 4:
+                hapus()
+            elif opsi == 5:
+                print('\nKeluar Dari Menu Admin.')
+                input('\nTekan Enter Untuk Melanjutkan...')
+                break
+            else:
+                print('Pilihan Tidak Valid! Silahkan Pilih 1-5')
+                input('\nTekan Enter Untuk Kembali...')
+                continue
+        except ValueError:
+            print('Pilihan Harus Berupa Angka! Silahkan Pilih 1-5')
+            input('\nTekan Enter Untuk Kembali...')
+            continue
+
+# Fungsi Registrasi & Login
+
+def register_cust():
+    print('\nHalo Customer baru!, Silahkan Buat Akun Terlebih Dahulu.')
+
+    username = input('Masukkan Username: ')
+    password = input('Masukkan Password: ')
+    if username in akuns:
+        print('\nUsername Sudah Digunakan. Silahkan Gunakan Username Lain!')
+        input('\nTekan Enter Untuk Kembali...')
+    else:
+        akuns[username] = password
+        print('\nAkun Berhasil Dibuat! Silakan Login.')    
+        input('\nTekan Enter Untuk Kembali Ke Menu...')
+
+def register_admin():
+    print('\nHalo Admin baru!, Silahkan Buat Akun Terlebih Dahulu.')
+
+    username = input('Masukkan Username: ')
+    password = input('Masukkan Password: ')
+    if username in akunadmin:
+        print('\nUsername Sudah Digunakan. Silahkan Gunakan Username Lain!')
+        input('\nTekan Enter Untuk Kembali...')
+    else:
+        akunadmin[username] = password
+        print('\nAkun Berhasil Dibuat! Silakan Login.')    
+        input('\nTekan Enter Untuk Kembali Ke Menu...')
+
+def login_cust():
+    print('\nHalo Customer!, Silahkan Login Terlebih Dahulu.')
+
+    usernamecust = input('Masukkan Username: ')
+    passwordcust = input('Masukkan Password: ')
 
     input('\nTekan Enter Untuk Melanjutkan...')
 
-    # Menu Customer
-    if opsilogin == 1:
-        while True:
-            os.system('cls')
-            print(43*'=')
-            print('|                                         |')
-            print('|              MENU CUSTOMER              |')
-            print('|                                         |') 
-            print(43*'=')
-            print('| 1. BUAT AKUN                            |') 
-            print('| 2. LOGIN                                |') 
-            print('| 3. KELUAR                               |') 
-            print(43*'=')
-            print('')
-    
-            opsicust = int(input('\nMasukkan Pilihan: '))
-
-            input('\nTekan Enter Untuk Melanjutkan...')
-    
-            # Buat Akun Customer
-
-            if opsicust == 1:
-                os.system('cls')
-                print('\nHalo Customer baru!, Silahkan Buat Akun Terlebih Dahulu.')
-
-                username = input('Masukkan Username: ')
-                password = input('Masukkan Password: ')
-
-                if username in akuns:
-                    print("Username Sudah Digunakan. Silahkan Gunakan Username Lain!")
-
-                    input('\nTekan Enter Untuk Kembali...')
-
-                else:
-                    akuns[username] = password
-                    print("Akun Berhasil Dibuat! Silakan Login.")    
-
-                    input('\nTekan Enter Untuk Kembali Ke Menu...')
-                    continue
-
-            # Login Customer
-
-            elif opsicust == 2:
-                os.system('cls')
-                print('\nHalo Customer baru!, Silahkan Login Terlebih Dahulu.')
-
-                usernamecust = input('Masukkan Username: ')
-                passwordcust = input('Masukkan Password: ')
-
-                input('\nTekan Enter Untuk Melanjutkan...')
-
-                if len(akuns) == 0:
-                    print('\nAnda Belum Memiliki Akun. Silahkan Buat Akun Untuk Login!')
-
-                    input('\nTekan Enter Untuk Kembali...')
-
-                elif usernamecust in akuns and akuns[usernamecust] == passwordcust:
-                    while True:
-                        os.system('cls')
-                        print(43*'=')
-                        print('|         MENU CUSTOMER TOKO PARFUM       |')
-                        print(43*'=')
-                        print('| 1. LIHAT & BELANJA                      |')
-                        print('| 2. KELUAR                               |')
-                        print(43*'=')
-
-                        opsi = int(input('\nPilih Opsi: ')) 
-
-                        input('\nTekan Enter Untuk Melanjutkan...')
-
-                        # LIHAT & BELANJA
-
-                        if opsi == 1:
-                            if len(dataparfum) == 0:
-                                print('\nDaftar Parfum Belum Ada, Harap Tunggu Admin Menambahkan Data.')
-
-                                input('\nTekan Enter Untuk Kembali...')
-
-                                continue
-                            else:
-                                print('\n=== LIST PARFUM ===')
-                                urutan = 1
-                                for nama, info in dataparfum.items():
-                                    print(f'\nParfum Ke-{urutan}')
-                                    print(f'Nama  : {nama}')
-                                    print(f'Aroma : {info["Aroma"]}')
-                                    print(f'Harga : Rp. {info["Harga"]}')
-                                    urutan += 1
-
-                                beli = input('\nMasukkan Nama Parfum Yang Ingin Dibeli: ')
-
-                                if beli in dataparfum:
-                                    jumlah = int(input('Masukkan Jumlah Yang Ingin Dibeli: '))
-
-                                    input('\nTekan Enter Untuk Membeli...')
-
-                                    total = jumlah * dataparfum[beli]['Harga']
-
-                                    print('\n=== STRUK BELANJA ===')
-                                    print(f'Nama Parfum  : {beli}')
-                                    print(f'Aroma        : {dataparfum[beli]["Aroma"]}')
-                                    print(f'Harga Satuan : Rp. {dataparfum[beli]["Harga"]}')
-                                    print(f'Jumlah       : {jumlah}')
-                                    print(f'Total Harga  : Rp. {total}')
-                                    print('Terima Kasih Sudah Berbelanja!\n')
-
-                                    input('\nTekan Enter Untuk Kembali...')
-
-                                else:
-                                    print('\nParfum Tidak Ditemukan')
-
-                                    input('\nTekan Enter Untuk Kembali...')
-                        
-                        # KELUAR
-
-                        elif opsi == 2:
-                            print('\nTerima Kasih Sudah Berkunjung ke TOKO PARFUM')
-
-                            input('\nTekan Enter Untuk Kembali Ke Menu Utama...')
-                            break
-                        
-                        else:
-                            print('Pilihan Tidak Valid, Silahkan pilih opsi yang tersedia')
-
-                            input('\nTekan Enter Untuk Kembali...')
-
-                else:
-                    print('\nUsername atau Password Salah. Silahkan Coba Lagi')
-
-                    input('\nTekan Enter Untuk Kembali...')
-
-            elif opsicust == 3:
-                print('\nTerima Kasih Sudah Berkunjung, Silahkan Datang Lagi.')
-
-                input('\nTekan Enter Untuk Keluar...')
-
-                break
-            else:
-                print('\nPilihan Tidak Valid! Silahkan Masukkan Pilihan yang Tersedia Di Menu.')
-
-                input('\nTekan Enter Untuk Kembali...')
-
-
-    # Menu Utama Admin
-
-    elif opsilogin == 2:
-        while True:
-            os.system('cls')
-            print(43*'=')
-            print('|                                         |')
-            print('|               MENU ADMIN                |')
-            print('|                                         |') 
-            print(43*'=')
-            print('| 1. BUAT AKUN                            |') 
-            print('| 2. LOGIN                                |') 
-            print('| 3. KELUAR                               |') 
-            print(43*'=')
-            print('')
-
-            opsiadmin = int(input('Masukkan Pilihan: ')) 
-
-            input('\nTekan Enter Untuk Melanjutkan...')
-
-            # Buat Akun Admin
-
-            if opsiadmin == 1:
-                os.system('cls')
-                print('\nHalo Admin baru!, Silahkan Buat Akun Terlebih Dahulu.')
-
-                username = input('Masukkan Username: ')
-                password = input('Masukkan Password: ')
-                
-                if username in akunadmin:
-                    print("Username sudah digunakan. Silahkan Gunakan Username Lain!")
-
-                    input('\nTekan Enter Untuk Kembali...') 
-                else:
-                    akunadmin[username] = password
-                    print("Akun berhasil dibuat! Silakan login.") 
-
-                    input('\nTekan Enter Untuk Kembali Ke Menu...')   
-                    continue
-
-            # Login Admin
-
-            elif opsiadmin == 2:
-                os.system('cls')
-                print('\nHalo Admin baru!, Silahkan Login Terlebih Dahulu.')
-
-                usernameadmin = input('Masukkan username: ')
-                passwordadmin = input('Masukkan password: ')
-
-                input('\nTekan Enter Untuk Melanjutkan...')
-
-                if len(akunadmin) == 0:
-                    print('\nAnda Belum Memiliki Akun. Silahkan Buat Akun Untuk Login!')
-
-                    input('\nTekan Enter Untuk Kembali Ke Menu...')  
-
-                elif usernameadmin in akunadmin and akunadmin[usernameadmin] == passwordadmin:
-                    while True:
-                        os.system('cls')
-                        print(43*'=')
-                        print('|        MENU ADMIN TOKO PARFUM X         |')
-                        print(43*'=')
-                        print('| 1. TAMBAHKAN PARFUM                     |')
-                        print('| 2. TAMPILKAN LIST PARFUM                |')
-                        print('| 3. UPDATE DATA PARFUM                   |')
-                        print('| 4. HAPUS DATA PARFUM                    |')
-                        print('| 5. KELUAR                               |')
-                        print(43*'=')
-
-                        opsi = int(input('\nPilih Opsi: '))
-
-                        input('\nTekan Enter Untuk Melanjutkan...') 
-
-                        # Tambah Data Parfum
-
-                        if opsi == 1:
-                            os.system('cls')
-                            print('\n=== TAMBAH DATA PARFUM ===')
-                            
-                            nama  = input('Nama Parfum: ')
-                            aroma = input('Aroma Parfum: ')
-                            harga = int(input('Harga parfum: Rp. '))
-
-                            dataparfum[nama] = {
-                                'Aroma': aroma,
-                                'Harga': harga
-                            }
-                            print('\nData berhasil ditambahkan!')
-
-                            input('\nTekan Enter Untuk Kembali Ke Menu...')
-
-                        # Lihat List Parfum
-
-                        elif opsi == 2:
-                            print('\n=== LIST PARFUM ===')
-                            if len(dataparfum) == 0:
-                                print('Daftar belum ada, silahkan tambah data dulu!')
-
-                                input('\nTekan Enter Untuk Kembali Ke Menu...')
-
-                            else:
-                                urutan = 1
-                                for nama, info in dataparfum.items():
-                                    print(f'\nParfum Ke-{urutan}')
-                                    print(f'Nama  : {nama}')
-                                    print(f'Aroma : {info["Aroma"]}')
-                                    print(f'Harga : Rp. {info["Harga"]}')
-                                    urutan += 1
-
-                                input('\nTekan Enter Untuk Kembali Ke Menu...')
-
-
-
-                        # Update Data Parfum
-
-                        elif opsi == 3:
-                            os.system('cls')
-                            print('\n=== UPDATE DATA PARFUM ===')
-                            
-                            namasebelumnya = input('Masukkan Nama Parfum yang Ingin Diupdate: ')
-                            if namasebelumnya in dataparfum:
-                                namabaru = input('Nama baru: ')
-                                aromabaru = input('Aroma baru: ')
-                                hargabaru = int(input('Harga baru: Rp. '))
-                                dataparfum.pop(namasebelumnya)
-                                dataparfum[namabaru] = {'Aroma': aromabaru, 'Harga': hargabaru}
-                                print('\nData berhasil diupdate!')
-
-                                input('\nTekan Enter Untuk Kembali Ke Menu...')
-
-                            else:
-                                print('\nData Tidak Ditemukan')
-
-                                input('\nTekan Enter Untuk Kembali Ke Menu...')
-
-                        # Hapus Data Parfum
-
-                        elif opsi == 4:
-                            os.system('cls')
-                            print('\n=== HAPUS DATA PARFUM ===')
-
-                            hapusparfum = input('Masukkan Nama Parfum yang Ingin Dihapus: ')
-                            if hapusparfum in dataparfum:
-                                dataparfum.pop(hapusparfum)
-                                print('\nData berhasil dihapus!')
-
-                                input('\nTekan Enter Untuk Kembali Ke Menu...')
-
-                            else:
-                                print('\nData Tidak Ditemukan')
-
-                                input('\nTekan Enter Untuk Kembali...')
-
-                        # Keluar Menu Admin Toko Parfum
-
-                        elif opsi == 5:
-                            print('\nKeluar dari menu admin.')
-
-                            input('\nTekan Enter Untuk Keluar Dari Menu...')
-                            break
-
-                        # Pilihan Tidak Valid
-
-                        else:
-                            print('\nPilihan Tidak Valid!')
-
-                            input('\nTekan Enter Untuk Kembali...')
-
-                # User atau Pass Salah
-
-                else:
-                    print('\nUsername atau Password Salah. Silahkan Coba Lagi')
-
-                    input('\nTekan Enter Untuk Kembali...')
-
-            # Keluar Menu admin
-
-            elif opsiadmin == 3:
-                print('\nTerima Kasih Sudah Berkunjung.')
-
-                input('\nTekan Enter Untuk Keluar Dari Program...')
-                break
-
-            else:
-                print('\nPilihan Tidak Valid!')
-
-                input('\nTekan Enter Untuk Kembali...')
-
-    # Keluar Program
-
-    elif opsilogin == 3:
-        print('\nTerima Kasih Sudah Berkunjung :).')
-        exit()
-    
-    # Pilihan Tidak Valid
-
+    if len(akuns) == 0:
+        print('\nAnda Belum Memiliki Akun. Silahkan Buat Akun Untuk Login!')
+        input('\nTekan Enter Untuk Kembali...')
+    elif usernamecust in akuns and akuns[usernamecust] == passwordcust:
+        menu_cust2()
     else:
-        print('\nPilihan Tidak Valid, Silahkan Pilih Opsi yang tersedia')
-
+        print('\nUsername atau Password Salah. Silahkan Coba Lagi')
         input('\nTekan Enter Untuk Kembali...')
 
+def login_admin():
+    print('\nHalo Admin!, Silahkan Login Terlebih Dahulu.')
+
+    usernameadmin = input('Masukkan Username: ')
+    passwordadmin = input('Masukkan Password: ')
+
+    input('\nTekan Enter Untuk Melanjutkan...')
+
+    if len(akunadmin) == 0:
+        print('\nAnda Belum Memiliki Akun. Silahkan Buat Akun Untuk Login!')
+        input('\nTekan Enter Untuk Kembali...')
+    elif usernameadmin in akunadmin and akunadmin[usernameadmin] == passwordadmin:
+        menu_admin2()
+    else:
+        print('\nUsername atau Password Salah. Silahkan Coba Lagi')
+        input('\nTekan Enter Untuk Kembali...')
+
+# Fungsi Di Toko Parfum
+
+def tambah():
+    print('\n=== TAMBAH DATA PARFUM ===')
+    nama  = input('Nama Parfum: ')
+    aroma = input('Aroma Parfum: ')
+    try:
+        harga = int(input('Harga Parfum: Rp. '))
+    except ValueError:
+        print('\nHarga Harus Berupa Angka!')
+        input('\nTekan Enter Untuk Kembali...')
+        return
+    dataparfum[nama] = {'Aroma': aroma, 'Harga': harga}
+    print('\nData berhasil ditambahkan!')
+    input('\nTekan Enter Untuk Kembali...')
+
+def list():
+    print('\n=== LIST DATA PARFUM ===')
+    if len(dataparfum) == 0:
+        print('\nData Parfum Belum Tersedia.')
+        input('\nTekan Enter Untuk Kembali...')
+    else:
+        urutan = 1
+        for nama, info in dataparfum.items():
+            print(f'\nParfum Ke-{urutan}')
+            print(f'Nama  : {nama}')
+            print(f'Aroma : {info['Aroma']}')
+            print(f'Harga : Rp. {info['Harga']}')
+            urutan += 1
+        input('\nTekan Enter Untuk Lanjut...')
+
+def update():
+    list()
+    print('\n=== UPDATE DATA PARFUM ===')
+    namasebelumnya = input('Masukkan Nama Parfum yang Ingin Diupdate: ')
+    if namasebelumnya in dataparfum:
+        namabaru = input('Nama baru: ')
+        aromabaru = input('Aroma baru: ')
+        try:
+            hargabaru = int(input('Harga baru: Rp. '))
+        except ValueError:
+            print('\nHarga Harus Berupa Angka!')
+            input('\nTekan Enter Untuk Kembali...')
+            return
+        dataparfum.pop(namasebelumnya)
+        dataparfum[namabaru] = {'Aroma': aromabaru, 'Harga': hargabaru}
+        print('\nData berhasil diupdate!')
+        input('\nTekan Enter Untuk Kembali...')
+    else:
+        print('\nData Tidak Ditemukan')
+        input('\nTekan Enter Untuk Kembali...')
+
+def hapus():
+    list()
+
+    print('\n=== HAPUS DATA PARFUM ===')
+    hapusparfum = input('Masukkan Nama Parfum yang Ingin Dihapus: ')
+    if hapusparfum in dataparfum:
+        dataparfum.pop(hapusparfum)
+        print('\nData berhasil dihapus!')
+        input('\nTekan Enter Untuk Kembali...')
+    else:
+        print('\nData Tidak Ditemukan')
+        input('\nTekan Enter Untuk Kembali...')
+
+def hitung_total(harga, jumlah):
+    return harga * jumlah
+
+def hitung_pajak(total, persen):
+    persen = 5
+    return total * persen / 100
+
+def belanja():
+    global transaksi, nama_terakhir
+    if len(dataparfum) == 0:
+        print("\nParfum Belum Tersedia, Silahkan Menunggu Admin Menambahkan Data.")
+        input('\nTekan Enter Untuk Kembali...')
+        return
+    list()
+    beli = input('\nMasukkan Nama Parfum Yang Ingin Dibeli: ')
+    if beli in dataparfum:
+        try:
+            jumlah = int(input('Masukkan Jumlah yang Ingin Dibeli: '))
+        except ValueError:
+            print("\nJumlah Harus Berupa Angka!")
+            input('\nTekan Enter Untuk Kembali...')
+            return
+        total = hitung_total(dataparfum[beli]['Harga'], jumlah)
+        pajak = hitung_pajak(total, 5)
+        total += pajak
+        transaksi += total
+        nama_terakhir = beli
+        print('\n=== STRUK BELANJA ===')
+        print(f'Nama Parfum              : {beli}')
+        print(f'Aroma                    : {dataparfum[beli]["Aroma"]}')
+        print(f'Harga Satuan             : Rp. {dataparfum[beli]["Harga"]}')
+        print(f'Jumlah                   : {jumlah}')
+        print(f'Total Harga + Pajak (5%) : Rp. {total}')
+        print('\nTerima Kasih Sudah Berbelanja!')
+        input('\nTekan Enter Untuk Kembali...')
+    else:
+        print("\nNama Parfum Tidak Ditemukan")
+        input('\nTekan Enter Untuk Kembali...')
+
+# Program Utama
+
+while True:
+    menu_utama()
