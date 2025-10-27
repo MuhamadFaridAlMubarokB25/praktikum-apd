@@ -292,7 +292,6 @@ while True:
                                 namabaru = input('Nama baru: ')
                                 aromabaru = input('Aroma baru: ')
                                 hargabaru = int(input('Harga baru: Rp. '))
-                                # update key jika nama berubah
                                 dataparfum.pop(namasebelumnya)
                                 dataparfum[namabaru] = {'Aroma': aromabaru, 'Harga': hargabaru}
                                 print('\nData berhasil diupdate!')

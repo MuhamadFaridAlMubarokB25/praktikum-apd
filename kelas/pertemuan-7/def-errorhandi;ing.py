@@ -102,8 +102,8 @@ def menu_cust2():
                 print('\nPilihan Tidak Valid! Silahkan Pilih Angka 1-2')
                 input('\nTekan Enter Untuk Kembali')
                 continue
-        except ValueError:
-            print('\nPilihan Harus Berupa Angka! Silahkan Pilih 1-2')
+        except:
+            print('\nPilihan Tidak Valid! Silahkan Pilih 1-2')
             input('\nTekan Enter Untuk Kembali...')
             continue
 
@@ -137,7 +137,7 @@ def menu_admin1():
                 input('\nTekan Enter Untuk Kembali...')
                 continue
         except ValueError:
-            print('\nPilihan Harus Berupa Angka! Silahkan Pilih 1-3')
+            print('\nPilihan Tidak Valid! Silahkan Pilih 1-3')
             input('\nTekan Enter Untuk Kembali...')
             continue
 
