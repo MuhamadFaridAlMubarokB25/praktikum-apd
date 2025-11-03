@@ -1,3 +1,4 @@
+import inquirer
 import os
 os.system('cls')
 from prettytable import PrettyTable
@@ -17,22 +18,26 @@ def menu_utama():
         print('=== SELAMAT DATANG DI TOKO PARFUM X ===')
         print('Anda Login Sebagai Siapa?')
         print(menu_utama)
-        try:
-            opsilogin = int(input('Masukkan Pilihan (1-3): '))
-            input('\nTekan Enter Untuk Melanjutkan...')
 
-            if opsilogin == 1:
-                menu_cust1()
-            elif opsilogin == 2:
-                menu_admin1()
-            elif opsilogin == 3:
-                print('\nTerima Kasih Sudah Berkunjung :)')
-                exit()
-            else:
-                print('\nPilihan Tidak Valid! Silahkan Pilih Angka 1-3')
-                input('\nTekan Enter Untuk Kembali...')
-                continue
-        except ValueError:
-            print('\nPilihan Harus Berupa Angka! Silahkan Pilih Angka 1-3')
-            input('\nTekan Enter Untuk Kembali...')
-            continue
+        pertanyaan = [
+        inquirer.List(
+            "pilihan",
+            message="Pilih Opsi Login",
+            choices=[("1. Customer", 1), 
+                    ("2. Admin", 2), 
+                    ("3. Keluar", 3)]
+        )
+        ]
+
+        answers = inquirer.prompt(pertanyaan)
+
+        if answers["pilihan"] == 1:
+            menu_cust1()
+        elif answers["pilihan"] == 2:
+            menu_admin1()
+        else:
+            answers["pilihan"] == 3
+            print('\nTerima Kasih Sudah Berkunjung :)')
+            exit()
+
+menu_utama()

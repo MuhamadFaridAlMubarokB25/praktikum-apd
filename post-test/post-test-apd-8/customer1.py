@@ -1,22 +1,21 @@
 import os
 os.system('cls')
 from prettytable import PrettyTable
-from 
+from registrasi import register_cust
+from login import login_cust
 
 def menu_cust1():
     while True:
         os.system('cls')
-        print('')
-        print(43*'=')
-        print('|                                         |')
-        print('|              MENU CUSTOMER              |')
-        print('|                                         |') 
-        print(43*'=')
-        print('| 1. BUAT AKUN                            |') 
-        print('| 2. LOGIN                                |') 
-        print('| 3. KELUAR                               |') 
-        print(43*'=')
-        print('')
+        menu_customer_1 = PrettyTable()
+        menu_customer_1.field_names = ["No", "Pilihan Menu"]
+        menu_customer_1.align = "l"
+        menu_customer_1.hrules = 1
+        menu_customer_1.add_row(['1', 'BUAT AKUN'])
+        menu_customer_1.add_row(['2', 'LOGIN'])
+        menu_customer_1.add_row(['3', 'KELUAR'])
+        print('Selamat Datang Di MENU CUSTOMER!')
+        print(menu_customer_1)
         try:
             opsicust = int(input('Masukkan Pilihan (1-3): '))
             input('\nTekan Enter Untuk Melanjutkan...')

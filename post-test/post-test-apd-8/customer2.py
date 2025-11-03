@@ -1,6 +1,7 @@
 import os
 os.system('cls')
 from prettytable import PrettyTable 
+from belanja import belanja
 
 def menu_cust2():
     while True:
