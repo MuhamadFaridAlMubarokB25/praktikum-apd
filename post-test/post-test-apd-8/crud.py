@@ -1,18 +1,39 @@
+import os
+os.system('cls')
+
 dataparfum = {}
 
 def tambah():
-    print('\n=== TAMBAH DATA PARFUM ===')
-    nama  = input('Nama Parfum: ')
-    aroma = input('Aroma Parfum: ')
-    try:
-        harga = int(input('Harga Parfum: Rp. '))
-    except ValueError:
-        print('\nHarga Harus Berupa Angka!')
+    while True:
+        os.system('cls')
+        print('\n=== TAMBAH DATA PARFUM ===')
+        nama  = input('Nama Parfum: ')
+        if not nama:
+            print('\nNama Tidak Boleh Kosong!')
+            input('\nTekan Enter Untuk Kembali...')
+            continue
+
+        aroma = input('Aroma Parfum: ')
+        if not aroma:
+            print('\nAroma Tidak Boleh Kosong!')
+            input('\nTekan Enter Untuk Kembali...')
+            continue
+
+        try:
+            harga = int(input('Harga Parfum: Rp. '))
+            if not harga:
+                print('\nHarga Tidak Boleh Kosong!')
+                input('\nTekan Enter Untuk Kembali...')
+                continue
+        except ValueError:
+            print('\nHarga Harus Berupa Angka!')
+            input('\nTekan Enter Untuk Kembali...')
+            continue
+
+        dataparfum[nama] = {'Aroma': aroma, 'Harga': harga}
+        print('\nData berhasil ditambahkan!')
         input('\nTekan Enter Untuk Kembali...')
-        return
-    dataparfum[nama] = {'Aroma': aroma, 'Harga': harga}
-    print('\nData berhasil ditambahkan!')
-    input('\nTekan Enter Untuk Kembali...')
+        break
 
 def list():
     print('\n=== LIST DATA PARFUM ===')
@@ -35,22 +56,38 @@ def update():
         input('\nTekan Enter Untuk Kembali...')
         return
     list()
-
-    print('\n=== UPDATE DATA PARFUM ===')
     namasebelumnya = input('\nMasukkan Nama Parfum yang Ingin Diupdate: ')
     if namasebelumnya in dataparfum:
-        namabaru = input('Nama baru: ')
-        aromabaru = input('Aroma baru: ')
-        try:
-            hargabaru = int(input('Harga baru: Rp. '))
-        except ValueError:
-            print('\nHarga Harus Berupa Angka!')
+        while True:
+            os.system('cls')
+            print('\n=== UPDATE DATA PARFUM ===')
+            namabaru = input('Nama baru: ')
+            if not namabaru:
+                print('\nNama Tidak Boleh Kosong!')
+                input('\nTekan Enter Untuk Kembali...')
+                continue
+
+            aromabaru = input('Aroma Parfum: ')
+            if not aromabaru:
+                print('\nAroma Tidak Boleh Kosong!')
+                input('\nTekan Enter Untuk Kembali...')
+                continue
+
+            try:
+                hargabaru = int(input('Harga Parfum: Rp. '))
+                if not hargabaru:
+                    print('\nHarga Tidak Boleh Kosong!')
+                    input('\nTekan Enter Untuk Kembali...')
+                    continue
+            except ValueError:
+                print('\nHarga Harus Berupa Angka!')
+                input('\nTekan Enter Untuk Kembali...')
+                continue
+            dataparfum.pop(namasebelumnya)
+            dataparfum[namabaru] = {'Aroma': aromabaru, 'Harga': hargabaru}
+            print('\nData berhasil diupdate!')
             input('\nTekan Enter Untuk Kembali...')
-            return
-        dataparfum.pop(namasebelumnya)
-        dataparfum[namabaru] = {'Aroma': aromabaru, 'Harga': hargabaru}
-        print('\nData berhasil diupdate!')
-        input('\nTekan Enter Untuk Kembali...')
+            break
     else:
         print('\nData Tidak Ditemukan')
         input('\nTekan Enter Untuk Kembali...')

@@ -1,3 +1,5 @@
+import pwinput
+
 akuns = {}
 akunadmin = {}
 
@@ -19,6 +21,7 @@ def register_admin():
 
     username = input('Masukkan Username: ')
     password = input('Masukkan Password: ')
+    
     if username in akunadmin:
         print('\nUsername Sudah Digunakan. Silahkan Gunakan Username Lain!')
         input('\nTekan Enter Untuk Kembali...')

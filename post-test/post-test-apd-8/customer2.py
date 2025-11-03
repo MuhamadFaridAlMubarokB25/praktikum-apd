@@ -1,3 +1,4 @@
+import inquirer
 import os
 os.system('cls')
 from prettytable import PrettyTable 
@@ -6,27 +7,30 @@ from belanja import belanja
 def menu_cust2():
     while True:
         os.system('cls')
-        print(43*'=')
-        print('|       MENU CUSTOMER TOKO PARFUM X       |')
-        print(43*'=')
-        print('| 1. LIHAT & BELANJA                      |')
-        print('| 2. KELUAR                               |')
-        print(43*'=')
-        try:
-            opsicust = int(input('\nMasukkan Pilihan (1-2): '))
-            input('\nTekan Enter Untuk Melanjutkan...')
+        menu_customer_2 = PrettyTable()
+        menu_customer_2.field_names = ["No", "Pilihan Menu                    "]
+        menu_customer_2.align = "l"
+        menu_customer_2.hrules = 1
+        menu_customer_2.add_row(['1', 'LIHAT & BELANJA'])
+        menu_customer_2.add_row(['2', 'KELUAR'])
+        print('Selamat Datang Di MENU CUSTOMER TOKO PARFUM X!')
+        print(menu_customer_2)
 
-            if opsicust == 1:
-                belanja()
-            elif opsicust == 2:
-                print('\nTerima Kasih Sudah Berkunjung ke TOKO PARFUM')
-                input('\nTekan Enter Untuk Kembali Ke Menu Customer...')
-                break
-            else:
-                print('\nPilihan Tidak Valid! Silahkan Pilih Angka 1-2')
-                input('\nTekan Enter Untuk Kembali...')
-                continue
-        except ValueError:
-            print('\nPilihan Harus Berupa Angka! Silahkan Pilih 1-2')
-            input('\nTekan Enter Untuk Kembali...')
-            continue
+        pertanyaan = [
+        inquirer.List(
+            'pilihan',
+            message='Silahkan Pilih Opsi Yang Ada Di Menu',
+            choices=[('1. Lihat & Belanja', 1), 
+                    ('2. Keluar', 2) ]
+        )
+        ]
+
+        answers = inquirer.prompt(pertanyaan)
+
+        if answers['pilihan'] == 1:
+            belanja()
+        else:
+            answers['pilihan'] == 2
+            print('\nAnda Akan Keluar Dari Menu Customer')
+            input('\nTekan Enter Untuk Kembali Ke Menu...')
+            break

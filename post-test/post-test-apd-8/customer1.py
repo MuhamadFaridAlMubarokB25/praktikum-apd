@@ -1,3 +1,4 @@
+import inquirer
 import os
 os.system('cls')
 from prettytable import PrettyTable
@@ -8,7 +9,7 @@ def menu_cust1():
     while True:
         os.system('cls')
         menu_customer_1 = PrettyTable()
-        menu_customer_1.field_names = ["No", "Pilihan Menu"]
+        menu_customer_1.field_names = ["No", "Pilihan Menu                    "]
         menu_customer_1.align = "l"
         menu_customer_1.hrules = 1
         menu_customer_1.add_row(['1', 'BUAT AKUN'])
@@ -16,22 +17,25 @@ def menu_cust1():
         menu_customer_1.add_row(['3', 'KELUAR'])
         print('Selamat Datang Di MENU CUSTOMER!')
         print(menu_customer_1)
-        try:
-            opsicust = int(input('Masukkan Pilihan (1-3): '))
-            input('\nTekan Enter Untuk Melanjutkan...')
-            if opsicust == 1:
-                register_cust()
-            elif opsicust == 2:
-                login_cust()
-            elif opsicust == 3:
-                print('\nAnda Akan Keluar Dari Menu Customer')
-                input('\nTekan Enter Untuk Melanjutkan...')
-                break
-            else:
-                print('\nPilihan Tidak Valid! Silahkan Pilih Angka 1-3')
-                input('\nTekan Enter Untuk Kembali...')
-                continue
-        except ValueError:
-            print('\nPilihan Harus Berupa Angka! Silahkan Pilih 1-3')
-            input('\nTekan Enter Untuk Kembali...')
-            continue
+
+        pertanyaan = [
+        inquirer.List(
+            'pilihan',
+            message='Silahkan Pilih Opsi Yang Ada Di Menu',
+            choices=[('1. Buat Akun', 1), 
+                    ('2. Login', 2), 
+                    ('3. Keluar', 3)]
+        )
+        ]
+
+        answers = inquirer.prompt(pertanyaan)
+
+        if answers['pilihan'] == 1:
+            register_cust()
+        elif answers['pilihan'] == 2:
+            login_cust()
+        else:
+            answers['pilihan'] == 3
+            print('\nAnda Akan Keluar Dari Menu Customer')
+            input('\nTekan Enter Untuk Kembali Ke Menu...')
+            break

@@ -9,7 +9,7 @@ def menu_admin1():
     while True:
         os.system('cls')
         menu_admin_1 = PrettyTable()
-        menu_admin_1.field_names = ["No", "Pilihan Menu"]
+        menu_admin_1.field_names = ["No", "Pilihan Menu                    "]
         menu_admin_1.align = "l"
         menu_admin_1.hrules = 1
         menu_admin_1.add_row(['1', 'BUAT AKUN'])
@@ -21,7 +21,7 @@ def menu_admin1():
         pertanyaan = [
         inquirer.List(
             'pilihan',
-            message='Silahkan Pilih Opsi Login',
+            message='Silahkan Pilih Opsi Yang Ada Di Menu',
             choices=[('1. Buat Akun', 1), 
                     ('2. Login', 2), 
                     ('3. Keluar', 3)]

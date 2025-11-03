@@ -8,7 +8,7 @@ def menu_admin2():
     while True:
         os.system('cls')
         menu_admin_2 = PrettyTable()
-        menu_admin_2.field_names = ["No", "Pilihan Menu"]
+        menu_admin_2.field_names = ["No", "Pilihan Menu                    "]
         menu_admin_2.align = "l"
         menu_admin_2.hrules = 1
         menu_admin_2.add_row(['1', 'TAMBAHKAN PARFUM'])
@@ -22,24 +22,24 @@ def menu_admin2():
         pertanyaan = [
         inquirer.List(
             'pilihan',
-            message='Silahkan Pilih Opsi Login',
+            message='Silahkan Pilih Opsi Yang Ada Di Menu',
             choices=[('1. TAMBAH', 1), 
                     ('2. LIST', 2),
                     ('3. UPDATE', 3),
-                    ('4. UPDATE', 4),
-                    ('5. UPDATE', 5), ]
+                    ('4. HAPUS', 4),
+                    ('5. KELUAR', 5), ]
         )
         ]
 
         answers = inquirer.prompt(pertanyaan)
-        
+
         if answers['pilihan'] == 1:
             tambah()
-        if answers['pilihan'] == 2:
+        elif answers['pilihan'] == 2:
             list()
-        if answers['pilihan'] == 3:
+        elif answers['pilihan'] == 3:
             update()
-        if answers['pilihan'] == 4:
+        elif answers['pilihan'] == 4:
             hapus()
         else:
             answers['pilihan'] == 5
