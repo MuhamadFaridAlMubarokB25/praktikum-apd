@@ -1,8 +1,12 @@
 from crud import dataparfum
+from crud import list
 from datetime import datetime
 
 transaksi = 0
 nama_terakhir = ''
+
+def waktu():
+    print(datetime.now())
 
 def hitung_total(harga, jumlah):
     return harga * jumlah
@@ -37,7 +41,7 @@ def belanja():
         print(f'Harga Satuan             : Rp. {dataparfum[beli]["Harga"]}')
         print(f'Jumlah                   : {jumlah}')
         print(f'Total Harga + Pajak (5%) : Rp. {total}')
-        print(f'Tanggal Pembelian        : ', print(datetime()))
+        print(f'Tanggal Pembelian        : ', waktu()), 
         print('\nTerima Kasih Sudah Berbelanja!')
         input('\nTekan Enter Untuk Kembali...')
     else:
